@@ -5,6 +5,49 @@
   max-height: 70vh;
   width: 100%;
   height: 100%;
+  user-select: none;
+  &_buttons {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+  &_volume {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    & input {
+      position: relative;
+      display: block;
+      width: 60px;
+      height: 4px;
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.1s ease;
+    }
+    &:hover {
+      & input {
+        transform: scaleX(1);
+      }
+    }
+  }
+  &_column {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 3;
+    pointer-events: none;
+  }
+  &_rewind {
+    width: 30%;
+    height: 100%;
+    pointer-events: all;
+  }
   & video {
     width: 100%;
     height: 100%;
@@ -29,24 +72,14 @@
     padding: 30px 20px;
     opacity: 0;
     transition: opacity 0.4s ease;
-  }
-  &_buttons {
-    & button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      &:focus {
-        outline: none;
-      }
-    }
+    z-index: 4;
   }
   &_timeline {
     position: absolute;
     top: 0;
-    left: 50%;
-    width: 95%;
-    height: 2px;
-    transform: translateX(-50%);
+    left: 20px;
+    right: 20px;
+    height: 4px;
     background: #a1a1a160;
     cursor: pointer;
 
@@ -55,7 +88,7 @@
       top: 0;
       left: 0;
       width: 0%;
-      height: 2px;
+      height: 100%;
       background: #fff;
       z-index: 1;
     }
@@ -69,9 +102,21 @@
       z-index: 2;
     }
   }
+  &_actions {
+    display: flex;
+    gap: 12px;
+  }
   &:hover {
     & .player_controls {
       opacity: 1;
     }
+  }
+}
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  &:focus {
+    outline: none;
   }
 }
