@@ -1,122 +1,147 @@
 .player {
-  position: relative;
-  max-width: 50vw;
-  min-height: 40vh;
-  max-height: 70vh;
-  width: 100%;
-  height: 100%;
-  user-select: none;
-  &_buttons {
-    display: flex;
-    align-items: baseline;
-    gap: 20px;
-  }
-  &_volume {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    & input {
-      position: relative;
-      display: block;
-      width: 60px;
-      height: 4px;
-      border-radius: 2px;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.1s ease;
-    }
-    &:hover {
-      & input {
-        transform: scaleX(1);
-      }
-    }
-  }
-  &_column {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 3;
-    pointer-events: none;
-  }
-  &_rewind {
-    width: 30%;
-    height: 100%;
-    pointer-events: all;
-  }
-  & video {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-  }
-  & span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
-    color: red;
-  }
-  &_controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 30px 20px;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 4;
-  }
-  &_timeline {
-    position: absolute;
-    top: 0;
-    left: 20px;
-    right: 20px;
-    height: 4px;
-    background: #a1a1a160;
-    cursor: pointer;
+	position: relative;
+	max-width: 50vw;
+	min-height: 40vh;
+	max-height: 70vh;
+	width: 100%;
+	height: 100%;
+	user-select: none;
+	&_left {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		&__column {
+			&:nth-child(1) {
+				margin-bottom: -4px;
+			}
+		}
+	}
+	&_volume {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		& input {
+			position: relative;
+			display: block;
+			width: 0px;
+			height: 4px;
+			border-radius: 2px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			opacity: 0;
+			-webkit-appearance: none;
+			appearance: none;
+			background: transparent;
+			overflow: hidden;
+			&::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				appearance: none;
+				background: #fff;
+				width: 10px;
+				height: 5px;
+				border-radius: 5px;
+				box-shadow: -407px 0 0 400px #4a08c5;
+			}
+			&::-webkit-slider-runnable-track {
+				-webkit-appearance: none;
+				background: #181313;
+				width: 100%;
+				height: 5px;
+			}
+		}
+		&:hover {
+			& input {
+				width: 60px;
+				opacity: 1;
+			}
+		}
+	}
+	&_column {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		z-index: 3;
+		pointer-events: none;
+	}
+	&_rewind {
+		width: 30%;
+		height: 100%;
+		pointer-events: all;
+	}
+	& video {
+		width: 100%;
+		height: 100%;
+		object-fit: fill;
+	}
+	& span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 100;
+		color: red;
+	}
+	&_controls {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		padding: 30px 20px;
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		z-index: 4;
+	}
+	&_timeline {
+		position: absolute;
+		top: 0;
+		left: 20px;
+		right: 20px;
+		height: 4px;
+		background: #a1a1a160;
+		cursor: pointer;
 
-    &__buffer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      background: #fff;
-      z-index: 1;
-    }
-    &__progress {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      background: #4a08c5;
-      z-index: 2;
-    }
-  }
-  &_actions {
-    display: flex;
-    gap: 12px;
-  }
-  &:hover {
-    & .player_controls {
-      opacity: 1;
-    }
-  }
+		&__buffer {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0%;
+			height: 100%;
+			background: #fff;
+			z-index: 1;
+		}
+		&__progress {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0%;
+			height: 100%;
+			background: #4a08c5;
+			z-index: 2;
+		}
+	}
+	&_right {
+		display: flex;
+		gap: 12px;
+	}
+	&:hover {
+		& .player_controls {
+			opacity: 1;
+		}
+	}
 }
 button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  &:focus {
-    outline: none;
-  }
+	background: none;
+	border: none;
+	cursor: pointer;
+	&:focus {
+		outline: none;
+	}
 }
