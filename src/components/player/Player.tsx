@@ -91,6 +91,23 @@ export const Player = ({ src, autoPlay, muted }: IPlayer) => {
 		videoApi.currentTime = newTimeSec
 	}
 
+	// const seekToPostionWithHand = (e: React.MouseEvent<HTMLDivElement>) => {
+	// 	if (!videoApi) return
+	// 	const TIME = 500
+	// 	const { left, width } = e.currentTarget.getBoundingClientRect()
+	// 	const clickPos = (e.clientX - left) / width
+	// 	if (clickPos < 0 || clickPos > 1) return
+	// 	const durationMs = videoApi.duration * 1000
+	// 	const newElapsedTimeMs = durationMs * clickPos
+	// 	const newTimeSec = newElapsedTimeMs / 1000
+	// 	let timeId = setTimeout(() => {
+	// 		videoApi.currentTime = newTimeSec
+	// 	}, TIME)
+	// 	window.addEventListener('mouseup', function () {
+	// 		clearTimeout(timeId)
+	// 	})
+	// }
+
 	const changeVolume = (value: any) => {
 		if (!videoRef.current) return
 		videoRef.current.volume = value / 100
@@ -219,14 +236,14 @@ export const Player = ({ src, autoPlay, muted }: IPlayer) => {
 									<path
 										d='M21 13C23.3333 10.5794 28 5.79185 28 6.00702'
 										stroke='white'
-										stroke-width='3'
-										stroke-linecap='round'
+										strokeWidth='3'
+										strokeLinecap='round'
 									/>
 									<path
 										d='M28 13C25.5794 10.6667 20.7918 6 21.007 6'
 										stroke='white'
-										stroke-width='3'
-										stroke-linecap='round'
+										strokeWidth='3'
+										strokeLinecap='round'
 									/>
 								</svg>
 							)}
