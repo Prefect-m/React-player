@@ -1,0 +1,88 @@
+.panel_control {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+.panel {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	&_volume {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		& input {
+			position: relative;
+			display: block;
+			width: 0px;
+			height: 4px;
+			border-radius: 2px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			opacity: 0;
+			-webkit-appearance: none;
+			appearance: none;
+			background: transparent;
+			overflow: hidden;
+			&::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				appearance: none;
+				background: #fff;
+				width: 10px;
+				height: 5px;
+				border-radius: 5px;
+				box-shadow: -407px 0 0 400px #4a08c5;
+			}
+			&::-webkit-slider-runnable-track {
+				-webkit-appearance: none;
+				background: #181313;
+				width: 100%;
+				height: 5px;
+			}
+		}
+		&:hover {
+			& input {
+				width: 60px;
+				opacity: 1;
+			}
+		}
+	}
+	&_timeline {
+		position: absolute;
+		top: 0;
+		left: 20px;
+		right: 20px;
+		height: 4px;
+		background: #a1a1a160;
+		cursor: pointer;
+
+		&__buffer {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0%;
+			height: 100%;
+			background: #fff;
+			z-index: 1;
+		}
+		&__progress {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0%;
+			height: 100%;
+			background: #4a08c5;
+			z-index: 2;
+		}
+	}
+
+	&_column {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+}
+.playbtn,
+.pausebtn {
+	margin-bottom: -3px;
+}
