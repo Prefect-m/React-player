@@ -128,7 +128,7 @@ export const Controlls = ({
 				<div className={styles.panel_quality}>
 					<button>
 						<svg
-							width='19'
+							width='14'
 							height='20'
 							viewBox='0 0 19 20'
 							fill='none'
@@ -144,7 +144,7 @@ export const Controlls = ({
 				<div className={styles.panel_fullscreen}>
 					<button onClick={fullScreenHandler}>
 						<svg
-							width='19'
+							width='14'
 							height='18'
 							viewBox='0 0 18 18'
 							fill='none'

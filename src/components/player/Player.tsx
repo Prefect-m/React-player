@@ -3,7 +3,13 @@ import { IPlayer } from './Player.props'
 import styles from './Player.module.scss'
 import { Controlls } from '../player-controlls/Controlls'
 
-export const Player = ({ src, autoPlay, muted }: IPlayer) => {
+export const Player = ({
+	src,
+	autoPlay,
+	muted,
+	poster,
+	movieName,
+}: IPlayer) => {
 	const [isPlaying, setIsPlaying] = useState(false)
 	const [isWaiting, setIsWaiting] = useState(false)
 	const [durationSec, setDurationSec] = useState(0)
@@ -137,8 +143,18 @@ export const Player = ({ src, autoPlay, muted }: IPlayer) => {
 			setIsPlaying(true)
 		}
 	}
+
 	return (
 		<div className={styles.player} ref={playerRef}>
+			<div
+				className={styles.player_poster}
+				style={{
+					backgroundImage: `url(${poster})`,
+					opacity: isPlaying ? 0 : 1,
+				}}
+			>
+				<h1>{movieName}</h1>
+			</div>
 			{isWaiting && <span>Загрузка...</span>}
 			<div className={styles.player_rewindWrapp}>
 				<div
